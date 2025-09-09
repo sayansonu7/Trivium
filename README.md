@@ -4,11 +4,10 @@ A professional FastAPI + NextJS + Auth0 authentication system with intelligent N
 
 ## Features
 
-✅ **Multi-Device Authentication** - Control how many devices can be logged in simultaneously  
-✅ **Intelligent Session Management** - Force logout from selected devices when limit is reached  
-✅ **Real-time Session Monitoring** - View and manage active sessions across all devices  
+✅ **Multi-Device Authentication** - Control how many devices can be logged in simultaneously (for now it's 3)   
+✅ **Intelligent Session Management** - Force logout from selected device when limit is reached  
 ✅ **Professional UI/UX** - Modern gradient design with smooth animations  
-✅ **Secure JWT Validation** - Enterprise-grade Auth0 integration  
+✅ **SimpleAuth integration with Auth0** - Enterprise-grade Auth0 integration  
 ✅ **User Profile Management** - Display and edit full name and phone number  
 
 ## Project Structure
@@ -17,17 +16,17 @@ A professional FastAPI + NextJS + Auth0 authentication system with intelligent N
 authProject/
 ├── frontend/          # NextJS application with Tailwind CSS
 │   ├── components/    # React components (Layout, Modals, etc.)
-│   ├── pages/        # NextJS pages (Dashboard, Profile, Sessions)
-│   ├── hooks/        # Custom React hooks
-│   └── lib/          # API client and utilities
-├── backend/          # FastAPI application
-│   ├── app/         # Application code
-│   │   ├── api/     # API endpoints
-│   │   ├── models/  # SQLAlchemy models
-│   │   ├── services/# Business logic
+│   ├── pages/         # NextJS pages (Dashboard, Profile, Sessions)
+│   ├── hooks/         # Custom React hooks
+│   └── lib/           # API client and utilities
+├── backend/           # FastAPI application
+│   ├── app/           # Application code
+│   │   ├── api/       # API endpoints
+│   │   ├── models/    # SQLAlchemy models
+│   │   ├── services/  # Business logic
 │   │   └── dependencies/ # Auth dependencies
-│   └── migrations/  # Database migrations
-└── start.bat         # Easy startup script
+│   └── migrations/    # Database migrations
+└── start.bat          # Easy startup script
 ```
 
 ## Quick Start
@@ -53,7 +52,6 @@ npm install
 
 3. **Run Application**:
 ```bash
-# Easy way - double click start.bat
 # Or manually:
 # Terminal 1: cd backend && python -m uvicorn app.main:app --reload
 # Terminal 2: cd frontend && npm run dev
@@ -75,11 +73,10 @@ npm install
 
 ## Usage
 
-1. **Run the application**: Double-click `start.bat` or run both services manually
-2. **Access frontend**: http://localhost:3000
-3. **Login with Auth0**: Click "Sign In Securely"
+1. **Run the application**: Run both services manually
+2. **Access frontend**: Go to http://localhost:3000
+3. **Login with Auth0**: Click "Sign In Securely" or "Sign in" on navigaation bar
 4. **Test N-device limit**: Login from multiple browsers/devices
-5. **Manage sessions**: Visit Sessions page to view and terminate active sessions
 
 ## Testing the N-Device Feature
 
