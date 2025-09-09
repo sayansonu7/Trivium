@@ -6,9 +6,14 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import { apiClient } from "../lib/api";
 import { FiRefreshCw } from "react-icons/fi";
 
+interface UserProfile {
+  full_name?: string;
+  phone_number?: string;
+}
+
 export default function Dashboard() {
   const { user } = useUser();
-  const [userProfile, setUserProfile] = useState(null);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const router = useRouter();
 
@@ -62,10 +67,7 @@ export default function Dashboard() {
               )}
               <div className="flex items-center">
                 <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Welcome,{" "}
-                  {(userProfile as { full_name?: string })?.full_name ||
-                    user?.name}
-                  !
+                  Welcome, {userProfile?.full_name || user?.name}!
                 </h1>
                 <button
                   onClick={loadUserProfile}

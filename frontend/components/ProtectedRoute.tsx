@@ -1,23 +1,27 @@
-import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import LoadingSpinner from './LoadingSpinner';
+import {
+  useUser,
+  withPageAuthRequired,
+  UserProfile,
+} from "@auth0/nextjs-auth0/client";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
   fallback?: React.ReactNode;
 }
 
-export default function ProtectedRoute({ 
-  children, 
-  fallback 
+export default function ProtectedRoute({
+  children,
+  fallback,
 }: ProtectedRouteProps) {
   const { user, error, isLoading } = useUser();
   const router = useRouter();
 
   useEffect(() => {
     if (!isLoading && !user && !error) {
-      router.push('/api/auth/login');
+      router.push("/api/auth/login");
     }
   }, [user, isLoading, error, router]);
 
@@ -33,8 +37,8 @@ export default function ProtectedRoute({
             Authentication Error
           </h1>
           <p className="text-gray-600 mt-2">{error.message}</p>
-          <button 
-            onClick={() => router.push('/api/auth/login')}
+          <button
+            onClick={() => router.push("/api/auth/login")}
             className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md"
           >
             Try Again
@@ -52,6 +56,8 @@ export default function ProtectedRoute({
 }
 
 // HOC version for page-level protection
-export const withAuth = (Component: React.ComponentType) => {
-  return withPageAuthRequired(Component);
+export const withAuth = <P extends {}>(Component: React.ComponentType<P>) => {
+  return withPageAuthRequired(
+    Component as React.ComponentType<P & { user: UserProfile }>
+  );
 };
