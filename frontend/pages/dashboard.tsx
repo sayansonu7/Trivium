@@ -33,7 +33,7 @@ export default function Dashboard() {
     loadUserProfile();
 
     // Refresh profile data every 30 seconds
-    const interval = setInterval(loadUserProfile, 30000);
+    const interval = setInterval(loadUserProfile, 100000);
     return () => clearInterval(interval);
   }, [user]);
 
