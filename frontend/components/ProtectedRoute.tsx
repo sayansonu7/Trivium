@@ -55,9 +55,5 @@ export default function ProtectedRoute({
   return <>{children}</>;
 }
 
-// HOC version for page-level protection
-export const withAuth = <P extends {}>(Component: React.ComponentType<P>) => {
-  return withPageAuthRequired(
-    Component as React.ComponentType<P & { user: UserProfile }>
-  );
-};
+// Note: withAuth HOC removed to avoid TypeScript conflicts
+// Use the ProtectedRoute component instead for page protection
