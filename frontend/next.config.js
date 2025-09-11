@@ -6,6 +6,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Configure for Netlify deployment
+  experimental: {
+    serverComponentsExternalPackages: [],
+  },
+  // Disable x-powered-by header for security
+  poweredByHeader: false,
 };
 
 module.exports = nextConfig;
