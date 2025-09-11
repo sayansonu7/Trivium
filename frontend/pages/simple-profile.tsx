@@ -118,17 +118,17 @@ export default function SimpleProfilePage() {
                     className="flex flex-wrap justify-center md:justify-start gap-3 animate-fade-in-right"
                     style={{ animationDelay: "0.4s" }}
                   >
-                    <span className="glass px-4 py-2 rounded-full text-sm font-medium">
-                      🔐 Authenticated
+                    <span className="glass px-4 py-2 rounded-full text-md text-green-200 font-medium">
+                      ✔️ Authenticated
                     </span>
                     <span
-                      className={`px-4 py-2 rounded-full text-sm font-medium ${
+                      className={`px-4 py-2 rounded-full text-md font-medium ${
                         user?.email_verified
-                          ? "bg-green-500/20 text-green-100 border border-green-400/30"
-                          : "bg-red-500/20 text-red-100 border border-red-400/30"
+                          ? "bg-white/20 text-green-500 border border-green-400/30"
+                          : "bg-white/20 text-red-700 border border-red-400/30"
                       }`}
                     >
-                      {user?.email_verified ? "✅ Verified" : "❌ Unverified"}
+                      {user?.email_verified ? "✅ Verified" : " Unverified"}
                     </span>
                   </div>
                 </div>
