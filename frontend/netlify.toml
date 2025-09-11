@@ -9,6 +9,11 @@
 [build.environment]
   # Node.js version for builds
   NODE_VERSION = "18"
+  # Increase memory limit for builds
+  NODE_OPTIONS = "--max-old-space-size=4096"
+  # Optimize build performance
+  NETLIFY_USE_YARN = "false"
+  NPM_FLAGS = "--prefer-offline"
 
 # Redirect rules for Next.js
 [[redirects]]
